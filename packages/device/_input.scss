@@ -1,0 +1,31 @@
+// These mixins allows to target certain devices according to their control input
+// https://medium.com/@ferie/detect-a-touch-device-with-only-css-9f8e30fa1134
+
+// Targets mobile devices like smartphones
+@mixin use-touchscreen() {
+  @media (hover: none) and (pointer: coarse) {
+    @content;
+  }
+}
+
+// Targets devices with stylus support
+@mixin use-stylus() {
+  @media (hover: none) and (pointer: fine) {
+    @content;
+  }
+}
+
+// Targets game with pointer devices
+// eg: Nintendo Wii, Microsoft Kinect
+@mixin use-game-pointer() {
+  @media (hover: hover) and (pointer: coarse) {
+    @content;
+  }
+}
+
+// Targets desktop devices with a mouse or touchpad
+@mixin use-mouse() {
+  @media (hover: hover) and (pointer: fine) {
+    @content;
+  }
+}
