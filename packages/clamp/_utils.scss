@@ -1,0 +1,90 @@
+// Remove the unit of a length
+// @param {Number} $number - Number to remove unit from
+// @return {Number} - Unitless number
+
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
+// A collection of utility functions from sass-calc
+// https://github.com/lunelson/sass-calc/
+
+@function is-number($value) {
+  @return type-of($value) == 'number';
+}
+
+@function can-sum($a, $b) {
+  @if is-number($a) and is-number($b) {
+    @return comparable($a, $b);
+  }
+  @return false;
+}
+
+@function is-zero($value) {
+  @if type-of($value) != 'number' {
+    @return false;
+  }
+  $value: if(unitless($value), $value, $value / (0 * $value + 1));
+  @if $value != 0 {
+    @return false;
+  }
+  @return true;
+}
+
+@function subtract($expr1, $expr2) {
+  // return normal math if possible
+  @if can-sum($expr1, $expr2) {
+    @return $expr1 - $expr2;
+  }
+
+  // if expr2 is negative, flip and call opposite operation
+  @if type-of($expr2) == 'number' and $expr2 < 0 {
+    @return add($expr1, $expr2/-1);
+  }
+
+  // if both exprs are zero unit, return 0%
+  @if is-zero($expr1) and is-zero($expr2) {
+    @return 0%;
+  }
+
+  // if expr2 is zero unit, return expr1
+  @if not $expr2 or is-zero($expr2) {
+    @return $expr1;
+  }
+
+  // otherwise format and return calc expression
+  @return unquote('#{$expr1} - #{$expr2}');
+}
+
+
+@function add($expr1, $expr2) {
+  // return normal math if possible
+  @if can-sum($expr1, $expr2) {
+    @return $expr1 + $expr2;
+  }
+
+  // if expr2 is negative, flip and call opposite operation
+  @if type-of($expr2) == 'number' and $expr2 < 0 {
+    @return subtract($expr1, $expr2/-1);
+  }
+
+  // if both exprs are zero, return 0%
+  @if is-zero($expr1) and is-zero($expr2) {
+    @return 0%;
+  }
+
+  // if either is zero, return the other
+  @if not $expr1 or is-zero($expr1) {
+    @return $expr2;
+  }
+  @if not $expr2 or is-zero($expr2) {
+    @return $expr1;
+  }
+
+  // otherwise format and return calc expression
+  @return unquote('#{$expr1} + #{$expr2}');
+}

@@ -1,0 +1,9 @@
+@use 'lerp';
+
+// This method generates a linear interpolation between two sizes for 2 media breakpoints
+// TODO: Update this method
+
+@function rp-clamp($minFontSizeRem, $maxFontSizeRem) {
+  $preferredValue: lerp((768px: $minFontSizeRem, 1920px: $maxFontSizeRem));
+  @return unquote("clamp(#{$minFontSizeRem}, #{$preferredValue}, #{$maxFontSizeRem})");
+}
