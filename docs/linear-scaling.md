@@ -1,4 +1,4 @@
-# Linear interpolation
+# Linear scaling of sizes (eg. font-size)
 
 In this example, we will asume we have 2 designs.<br>
 One for mobile, which has a width of 768px.<br>
