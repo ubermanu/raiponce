@@ -7,7 +7,7 @@ It contains a set of techniques, using HTML and CSS, to create fully fluid web p
 
 ### Design
 
-We need 2 designs, for small and large devices.
+We need 2 designs, one for small and one large devices.
 
 ### Media queries
 
@@ -20,6 +20,8 @@ Media queries should detect the device that we are using based on its controls (
 
 Sizes should interpolate between 2 values.<br>
 For this matter we use `clamp` to guess any size between 2 breakpoints.
+
+**Note**: The styles have to be mobile-first.
 
 ### Lists
 
