@@ -90,11 +90,11 @@
 }
 
 // Calculates a scaling value between two values of two breakpoints
-// Example: interpolate((768px: 1.2rem, 1920px: 3rem));
+// Example: interpolate((768px: 1.2rem, 1920px: 3rem), 10);
 
-// TODO: Add support for another units
+// TODO: Apply ratio on rem/em units that are not pixels
 // TODO: Check for compatibility between values (same unit)
-@function interpolate($table, $domain: 100vw) {
+@function interpolate($table, $ratio: 1, $domain: 100vw) {
 
   $keys: map-keys($table);
   $values: map-values($table);
@@ -108,12 +108,12 @@
   $minWidth: strip-unit($key-1);
   $maxWidth: strip-unit($key-2);
 
-  $minSize: strip-unit($val-1);
-  $maxSize: strip-unit($val-2);
+  $minSize: strip-unit($val-1) * $ratio;
+  $maxSize: strip-unit($val-2) * $ratio;
   $unit: unit($minSize);
 
   $slope: ($maxSize - $minSize) / ($maxWidth - $minWidth);
   $yAxisIntersection: -$minWidth * $slope + $minSize;
 
-  @return add($slope * $domain, $yAxisIntersection + unquote($unit));
+  @return add($slope * $domain, $yAxisIntersection / $ratio + unquote($unit));
 }

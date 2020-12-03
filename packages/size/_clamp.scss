@@ -4,10 +4,10 @@
 // Clamp limits the minimum and maximum sizes.
 
 // TODO: use $args...
-@function clamp($table, $domain: 100vw) {
+@function clamp($table, $ratio: 1, $domain: 100vw) {
   $values: map-values($table);
   $minSize: nth($values, 1);
   $maxSize: nth($values, 2);
-  $preferredValue: utilities.interpolate($table, $domain);
+  $preferredValue: utilities.interpolate($table, $ratio, $domain);
   @return unquote("clamp(#{$minSize}, #{$preferredValue}, #{$maxSize})");
 }
