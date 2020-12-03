@@ -104,13 +104,13 @@
 
   $val-1: nth($values, 1);
   $val-2: nth($values, 2);
+  $unit: unit($val-1);
 
   $minWidth: strip-unit($key-1);
   $maxWidth: strip-unit($key-2);
 
   $minSize: strip-unit($val-1) * $ratio;
   $maxSize: strip-unit($val-2) * $ratio;
-  $unit: unit($minSize);
 
   $slope: ($maxSize - $minSize) / ($maxWidth - $minWidth);
   $yAxisIntersection: -$minWidth * $slope + $minSize;
