@@ -3,9 +3,11 @@
 // This method generates a linear interpolation between two sizes for 2 media breakpoints.
 // Clamp limits the minimum and maximum sizes.
 
-@function clamp($args...) {
-  $minSize: false; // TODO: Get these values from args
-  $maxSize: false; // TODO: Get these values from args
-  $preferredValue: utilities.interpolate($args...);
+// TODO: use $args...
+@function clamp($table, $domain: 100vw) {
+  $values: map-values($table);
+  $minSize: nth($values, 1);
+  $maxSize: nth($values, 2);
+  $preferredValue: utilities.interpolate($table, $domain);
   @return unquote("clamp(#{$minSize}, #{$preferredValue}, #{$maxSize})");
 }

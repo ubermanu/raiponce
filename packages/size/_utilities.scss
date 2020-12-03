@@ -93,7 +93,8 @@
 // Example: interpolate((768px: 1.2rem, 1920px: 3rem));
 
 // TODO: Add support for another units
-@function interpolate($table, $domain: 100vw, $rem-px: 10) {
+// TODO: Check for compatibility between values (same unit)
+@function interpolate($table, $domain: 100vw) {
 
   $keys: map-keys($table);
   $values: map-values($table);
@@ -107,11 +108,12 @@
   $minWidth: strip-unit($key-1);
   $maxWidth: strip-unit($key-2);
 
-  $minFontSize: strip-unit($val-1) * $rem-px;
-  $maxFontSize: strip-unit($val-2) * $rem-px;
+  $minSize: strip-unit($val-1);
+  $maxSize: strip-unit($val-2);
+  $unit: unit($minSize);
 
-  $slope: ($maxFontSize - $minFontSize) / ($maxWidth - $minWidth);
-  $yAxisIntersection: -$minWidth * $slope + $minFontSize;
+  $slope: ($maxSize - $minSize) / ($maxWidth - $minWidth);
+  $yAxisIntersection: -$minWidth * $slope + $minSize;
 
-  @return add($slope * $domain, $yAxisIntersection / $rem-px + rem);
+  @return add($slope * $domain, $yAxisIntersection + unquote($unit));
 }
