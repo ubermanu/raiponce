@@ -1,0 +1,6 @@
+@use 'sass:map';
+@use '..' as raiponce;
+
+.example-10to30 {
+  font-size: raiponce.clamp((768px: 10px, 1920px: 30px));
+}
