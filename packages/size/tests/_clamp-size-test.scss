@@ -1,6 +1,6 @@
 @use "sass:map";
-@use '../node_modules/sass-true' as *;
-@use '../packages/size' as raiponce;
+@use '../../../node_modules/sass-true' as *;
+@use '..' as raiponce;
 
 @include describe('Clamp [function]') {
   @include it('Supports PX for responsive sizes') {

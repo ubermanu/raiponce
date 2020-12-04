@@ -6,12 +6,5 @@
     "packages/device",
     "packages/size"
   ],
-  "scripts": {
-    "test": "sass tests/sass_true.scss"
-  },
-  "devDependencies": {
-    "sass": "^1.29.0",
-    "sass-true": "^6.0.1"
-  },
   "license": "MIT"
 }
