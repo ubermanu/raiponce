@@ -1,7 +1,23 @@
 {
   "name": "raiponce",
+  "description": "Set of tools for responsive and modern designs",
+  "keywords": [
+    "responsive-design",
+    "sass"
+  ],
   "version": "1.0.0",
-  "private": true,
+  "author": {
+    "name": "Emmanuel Vodor",
+    "email": "manu@paca.happy-dev.fr"
+  },
+  "homepage": "https://ubermanu.github.io/raiponce/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ubermanu/raiponce.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ubermanu/raiponce/issues"
+  },
   "workspaces": [
     "packages/device",
     "packages/size"
