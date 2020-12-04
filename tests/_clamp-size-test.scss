@@ -1,5 +1,5 @@
 @use "sass:map";
-@use '../../../node_modules/sass-true' as *;
+@use '../node_modules/sass-true' as *;
 @use '..' as raiponce;
 
 @include describe('Clamp [function]') {
