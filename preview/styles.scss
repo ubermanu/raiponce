@@ -13,3 +13,7 @@ html {
 .example-10to30-rem {
   font-size: raiponce.clamp((768px: 1rem, 1920px: 3rem), 10);
 }
+
+.example-20to40-alt {
+  font-size: raiponce.clamp((1000px: 20px, 1200px: 40px));
+}
