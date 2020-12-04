@@ -1,6 +1,15 @@
 @use 'sass:map';
 @use '..' as raiponce;
 
+html {
+  font-size: 62.5%;
+}
+
 .example-10to30 {
   font-size: raiponce.clamp((768px: 10px, 1920px: 30px));
+}
+
+// In this example the ratio is 1rem = 10px
+.example-10to30-rem {
+  font-size: raiponce.clamp((768px: 1rem, 1920px: 3rem), 10);
 }
