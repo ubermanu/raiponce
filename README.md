@@ -1,4 +1,6 @@
-# RAIPONCE
+![](media/icons8-princess-48.png?raw=true "")
+
+# Raiponce
 
 The repo contains a set of functions and utils for SASS.<br>
 Plus, a documentation is available with some good practices.
