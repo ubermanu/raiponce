@@ -106,6 +106,14 @@
   $val-2: nth($values, 2);
   $unit: unit($val-1);
 
+  @if $unit == 'px' {
+    $unit: 1px;
+  } @else if $unit == 'rem' {
+    $unit: 1rem;
+  } @else if $unit == 'em' {
+    $unit: 1em;
+  }
+
   $minWidth: strip-unit($key-1);
   $maxWidth: strip-unit($key-2);
 
@@ -115,5 +123,5 @@
   $slope: ($maxSize - $minSize) / ($maxWidth - $minWidth);
   $yAxisIntersection: -$minWidth * $slope + $minSize;
 
-  @return add($slope * $domain, $yAxisIntersection / $ratio + unquote($unit));
+  @return add($slope * $domain, $yAxisIntersection / $ratio * $unit);
 }
