@@ -24,18 +24,34 @@ body {
 }
 
 // Implement device detection
-.use {
+.detect-device-pointer {
   color: firebrick;
 }
 
 @include raiponce.use-touchscreen() {
-  .use-touchscreen {
+  .detect-device-pointer {
     color: forestgreen;
+
+    &:before {
+      content: 'You are using a touchscreen! 📱'
+    }
+
+    > span {
+      display: none;
+    }
   }
 }
 
 @include raiponce.use-mouse() {
-  .use-mouse {
+  .detect-device-pointer {
     color: forestgreen;
+
+    &:before {
+      content: 'You are using a mouse! 🐭'
+    }
+
+    > span {
+      display: none;
+    }
   }
 }
