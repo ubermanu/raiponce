@@ -13,6 +13,24 @@ In your scss file (with module resolver):
 
     @use 'raiponce';
 
+### Getting started
+
+This quick example showcases a fluid font size from 12px to 24px.
+
+```scss
+/* styles.scss */
+p {
+  font-size: raiponce.clamp((768px: 12px, 1920px: 24px));
+}
+```
+
+```css
+/* output.css */
+p {
+  font-size: clamp(12px, 1.0416666667vw + 4px, 24px);
+}
+```
+
 ### Run tests
 
 Tests are made using sass-true.<br>
