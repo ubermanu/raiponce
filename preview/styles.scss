@@ -19,8 +19,8 @@ body {
   font-size: raiponce.clamp((768px: 1rem, 1920px: 3rem), 10);
 }
 
-.example-20to40-alt {
-  font-size: raiponce.clamp((1000px: 20px, 1200px: 40px));
+.example-10to30-alt {
+  font-size: raiponce.clamp((1000px: 10px, 1200px: 30px));
 }
 
 // Implement device detection
@@ -54,4 +54,25 @@ body {
       display: none;
     }
   }
+}
+
+// Responsive grid
+.example-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 1rem;
+
+  .item {
+    background: burlywood;
+    height: 1rem;
+  }
+}
+
+// Responsive grid with variable width
+.example-grid-clamp {
+  @extend .example-grid;
+  $width: raiponce.clamp((380px: 100px, 1600px: 200px));
+  $gap: raiponce.clamp((380px: 10px, 1920px: 40px));
+  grid-template-columns: repeat(auto-fill, minmax($width, 1fr));
+  grid-gap: $gap;
 }
