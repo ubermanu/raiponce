@@ -14,6 +14,7 @@
   "scripts": {
     "build": "pnpm recursive run build",
     "clean": "pnpm recursive exec -- rm -rf node_modules; rm shrinkwrap.yaml; rm -rf node_modules",
+    "dev": "vite",
     "test": "pnpm recursive run test"
   },
   "devDependencies": {
@@ -21,6 +22,7 @@
     "prettier": "^2.2.1",
     "rollup": "^2.45.2",
     "sass": "^1.29.0",
-    "sass-true": "^6.0.1"
+    "sass-true": "^6.0.1",
+    "vite": "^2.1.5"
   }
 }
