@@ -15,7 +15,7 @@
     "build": "pnpm recursive run build",
     "clean": "pnpm recursive exec -- rm -rf node_modules; rm shrinkwrap.yaml; rm -rf node_modules",
     "dev": "vite",
-    "test": "pnpm recursive run test"
+    "test": "sass tests/sass_true.scss"
   },
   "devDependencies": {
     "jest": "^26.6.3",
