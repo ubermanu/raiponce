@@ -7,7 +7,7 @@ Plus, a documentation is available with some good practices.
 
 ### Install
 
-    yarn add raiponce
+    npm install raiponce
 
 In your scss file (with module resolver):
 
