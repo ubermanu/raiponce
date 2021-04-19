@@ -1,8 +1,8 @@
 @use "sass:map";
-@use '../node_modules/sass-true' as *;
-@use '..' as raiponce;
+@use "../node_modules/sass-true" as *;
+@use ".." as raiponce;
 
-@include describe("lerp [function]") {
+@include describe("raiponce.lerp [function]") {
   @include it("supports PX for responsive sizes") {
     @include assert-equal(
       raiponce.lerp(
