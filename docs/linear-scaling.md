@@ -14,7 +14,7 @@ You can check the `raiponce` package which contains the `clamp()` function.
 ```scss
 /* styles.scss */
 p {
-  font-size: raiponce.clamp((768px: 12px, 1920px: 24px));
+  font-size: raiponce.lerp((768px: 12px, 1920px: 24px));
 }
 ```
 
