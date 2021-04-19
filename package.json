@@ -5,15 +5,13 @@
     "responsive-design",
     "sass"
   ],
-  "version": "2.0.0",
+  "version": "2.1.0",
   "homepage": "https://ubermanu.github.io/raiponce/",
   "repository": "https://github.com/ubermanu/raiponce",
   "bugs": "https://github.com/ubermanu/raiponce/issues",
   "author": "Emmanuel Vodor <manu@paca.happy-dev.fr>",
   "license": "MIT",
   "scripts": {
-    "build": "pnpm recursive run build",
-    "clean": "pnpm recursive exec -- rm -rf node_modules; rm shrinkwrap.yaml; rm -rf node_modules",
     "dev": "vite",
     "test": "sass tests/sass_true.scss"
   },
@@ -24,5 +22,9 @@
     "sass": "^1.29.0",
     "sass-true": "^6.0.1",
     "vite": "^2.1.5"
-  }
+  },
+  "files": [
+    "_index.scss",
+    "lib/**/*"
+  ]
 }
