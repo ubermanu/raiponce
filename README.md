@@ -10,7 +10,7 @@ Plus, a documentation is available with some good practices.
 In your scss file (with module resolver):
 
 ```scss
-    @use 'raiponce';
+@use 'raiponce';
 ```
 
 ### Getting started
