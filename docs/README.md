@@ -5,24 +5,6 @@
 This is a paper about how to implement modern and responsive web designs.<br>
 It contains a set of techniques, using HTML and CSS, to create fully fluid web pages.
 
-### Design
+![](media/220px-Rapunzel-Paul-Hey.jpg?raw=true "")
 
-We need 2 designs, one for small and one large devices.
-
-### Media queries
-
-A breakpoint should be optional, it breaks the fluidity of the layout.<br>
-Instead we use it when the layout drastically changes (eg. navigation bar).
-
-Media queries should detect the device that we are using based on its controls (mouse or touchscreen).
-
-### Sizes
-
-Sizes should interpolate between 2 values.<br>
-For this matter we use `clamp` to guess any size between 2 breakpoints.
-
-**Note**: The styles have to be mobile-first.
-
-### Lists
-
-Any lists should be handled with `flex` or `grid`.
+> Illustration by Paul Hey, created around 1910
