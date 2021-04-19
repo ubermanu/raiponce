@@ -18,16 +18,16 @@ In your scss file (with module resolver):
 This quick example showcases a fluid font size from 12px to 24px.
 
 ```scss
-/* styles.scss */
+/* input.scss */
 p {
-  font-size: raiponce.clamp((768px: 12px, 1920px: 24px));
+  font-size: raiponce.lerp((768px: 12px, 1920px: 24px));
 }
 ```
 
 ```css
 /* output.css */
 p {
-  font-size: clamp(12px, 1.0416666667vw + 4px, 24px);
+    font-size: clamp(12px, 1.0416666667vw + 4px, 24px);
 }
 ```
 
@@ -36,10 +36,10 @@ p {
 Tests are made using sass-true.<br>
 You can clone this repo and run:
 
-    yarn test
+    pnpm test
 
 ### Preview
 
 You can run locally the preview web server with some examples:
 
-    yarn preview
+    pnpm preview

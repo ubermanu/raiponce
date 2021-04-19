@@ -1,5 +1,5 @@
-@use 'sass:map';
-@use '..' as raiponce;
+@use "sass:map";
+@use ".." as raiponce;
 
 html {
   font-size: 62.5%;
@@ -7,20 +7,41 @@ html {
 
 body {
   font-family: "Droid Sans", sans-serif;
-  font-size: raiponce.clamp((380px: 10px, 1600px: 20px));
+  font-size: raiponce.lerp(
+    (
+      380px: 10px,
+      1600px: 20px
+    )
+  );
 }
 
 .example-10to30 {
-  font-size: raiponce.clamp((768px: 10px, 1920px: 30px));
+  font-size: raiponce.lerp(
+    (
+      768px: 10px,
+      1920px: 30px
+    )
+  );
 }
 
 // In this example the ratio is 1rem = 10px
 .example-10to30-rem {
-  font-size: raiponce.clamp((768px: 1rem, 1920px: 3rem), 10);
+  font-size: raiponce.lerp(
+    (
+      768px: 1rem,
+      1920px: 3rem
+    ),
+    10
+  );
 }
 
 .example-10to30-alt {
-  font-size: raiponce.clamp((1000px: 10px, 1200px: 30px));
+  font-size: raiponce.lerp(
+    (
+      1000px: 10px,
+      1200px: 30px
+    )
+  );
 }
 
 // Implement device detection
@@ -33,7 +54,7 @@ body {
     color: forestgreen;
 
     &:before {
-      content: 'You are using a touchscreen! 📱'
+      content: "You are using a touchscreen! 📱";
     }
 
     > span {
@@ -47,7 +68,7 @@ body {
     color: forestgreen;
 
     &:before {
-      content: 'You are using a mouse! 🐭'
+      content: "You are using a mouse! 🐭";
     }
 
     > span {
@@ -71,8 +92,18 @@ body {
 // Responsive grid with variable width
 .example-grid-clamp {
   @extend .example-grid;
-  $width: raiponce.clamp((380px: 100px, 1600px: 200px));
-  $gap: raiponce.clamp((380px: 10px, 1920px: 40px));
+  $width: raiponce.lerp(
+    (
+      380px: 100px,
+      1600px: 200px
+    )
+  );
+  $gap: raiponce.lerp(
+    (
+      380px: 10px,
+      1920px: 40px
+    )
+  );
   grid-template-columns: repeat(auto-fill, minmax($width, 1fr));
   grid-gap: $gap;
 }
