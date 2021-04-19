@@ -5,7 +5,7 @@
     "responsive-design",
     "sass"
   ],
-  "version": "2.1.0",
+  "version": "2.1.1",
   "homepage": "https://ubermanu.github.io/raiponce/",
   "repository": "https://github.com/ubermanu/raiponce",
   "bugs": "https://github.com/ubermanu/raiponce/issues",
@@ -14,7 +14,7 @@
   "scripts": {
     "dev": "vite",
     "test": "sass tests/sass_true.scss",
-    "preview": "vite preview"
+    "preview": "vite"
   },
   "devDependencies": {
     "jest": "^26.6.3",
