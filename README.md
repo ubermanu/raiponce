@@ -1,5 +1,3 @@
-![](media/icons8-princess-48.png?raw=true "")
-
 # Raiponce
 
 The repo contains a set of functions and utils for SASS.<br>
