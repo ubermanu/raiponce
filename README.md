@@ -38,8 +38,8 @@ You can clone this repo and run:
 
     pnpm test
 
-### Preview
+### Example
 
-You can run locally the preview web server with some examples:
+You can run locally the example with:
 
-    pnpm preview
+    pnpm example
