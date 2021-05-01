@@ -9,11 +9,19 @@
   "repository": "https://github.com/ubermanu/raiponce",
   "author": "ubermanu <manu@paca.happy-dev.fr>",
   "license": "MIT",
+  "type": "module",
+  "main": "index.js",
+  "files": [
+    "_index.scss",
+    "index.js",
+    "lib/**"
+  ],
   "scripts": {
     "example": "cd example && vite",
-    "test": "sass tests/sass_true.scss"
+    "test": "jest"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.14.0",
     "jest": "^26.6.3",
     "prettier": "^2.2.1",
     "rollup": "^2.46.0",
@@ -21,8 +29,11 @@
     "sass-true": "^6.0.1",
     "vite": "^2.2.3"
   },
-  "files": [
-    "_index.scss",
-    "lib/**"
-  ]
+  "exports": {
+    ".": {
+      "import": "./index.js",
+      "default": "./index.js"
+    },
+    "./package.json": "./package.json"
+  }
 }
