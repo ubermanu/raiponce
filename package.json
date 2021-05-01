@@ -23,6 +23,6 @@
   },
   "files": [
     "_index.scss",
-    "lib/**/*"
+    "lib/**"
   ]
 }
