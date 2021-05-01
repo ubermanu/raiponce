@@ -35,5 +35,8 @@
       "default": "./index.js"
     },
     "./package.json": "./package.json"
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }
