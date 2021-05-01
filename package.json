@@ -6,15 +6,12 @@
     "sass"
   ],
   "version": "2.1.2",
-  "homepage": "https://ubermanu.github.io/raiponce/",
   "repository": "https://github.com/ubermanu/raiponce",
-  "bugs": "https://github.com/ubermanu/raiponce/issues",
-  "author": "Emmanuel Vodor <manu@paca.happy-dev.fr>",
+  "author": "ubermanu <manu@paca.happy-dev.fr>",
   "license": "MIT",
   "scripts": {
-    "dev": "vite",
-    "test": "sass tests/sass_true.scss",
-    "preview": "vite"
+    "example": "cd example && vite",
+    "test": "sass tests/sass_true.scss"
   },
   "devDependencies": {
     "jest": "^26.6.3",
