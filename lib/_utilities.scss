@@ -1,10 +1,12 @@
+@use 'sass:math';
+
 // Remove the unit of a length
 // @param {Number} $number - Number to remove unit from
 // @return {Number} - Unitless number
 
 @function strip-unit($number) {
   @if type-of($number) == 'number' and not unitless($number) {
-    @return $number / ($number * 0 + 1);
+    @return math.div($number, ($number * 0 + 1));
   }
 
   @return $number;
@@ -28,7 +30,7 @@
   @if type-of($value) != 'number' {
     @return false;
   }
-  $value: if(unitless($value), $value, $value / (0 * $value + 1));
+  $value: if(unitless($value), $value, math.div($value, (0 * $value + 1)));
   @if $value != 0 {
     @return false;
   }
@@ -43,7 +45,7 @@
 
   // if expr2 is negative, flip and call opposite operation
   @if type-of($expr2) == 'number' and $expr2 < 0 {
-    @return add($expr1, $expr2/-1);
+    @return add($expr1, math.div($expr2, -1));
   }
 
   // if both exprs are zero unit, return 0%
@@ -68,7 +70,7 @@
 
   // if expr2 is negative, flip and call opposite operation
   @if type-of($expr2) == 'number' and $expr2 < 0 {
-    @return subtract($expr1, $expr2/-1);
+    @return subtract($expr1, math.div($expr2, -1));
   }
 
   // if both exprs are zero, return 0%
@@ -114,7 +116,7 @@
   }
 
   // Get unit from the 1st value
-  $unit: $val-1 / strip-unit($val-1);
+  $unit: math.div($val-1, strip-unit($val-1));
 
   $minWidth: strip-unit($key-1);
   $maxWidth: strip-unit($key-2);
@@ -127,11 +129,11 @@
     $maxSize: $maxSize * $ratio;
   }
 
-  $slope: ($maxSize - $minSize) / ($maxWidth - $minWidth);
+  $slope: math.div(($maxSize - $minSize), ($maxWidth - $minWidth));
   $yAxisIntersection: -$minWidth * $slope + $minSize;
 
   @if unit($unit) == 'em' or unit($unit) == 'rem' {
-    $yAxisIntersection: $yAxisIntersection / $ratio;
+    $yAxisIntersection: math.div($yAxisIntersection, $ratio);
   }
 
   @return add($slope * $domain, $yAxisIntersection * $unit);
