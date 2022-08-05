@@ -16,7 +16,7 @@ describe('JS: raiponce.lerp [function]', function () {
   })
 
   it('supports REM for responsive sizes, with a ratio of 16/1', () => {
-    expect(lerp({ 360: '1rem', 840: '3.5rem' }, 10)).toEqual(
+    expect(lerp({ 360: '1rem', 840: '3.5rem' }, 16)).toEqual(
       'clamp(1rem, 8.3333333333vw - 0.875rem, 3.5rem)'
     )
   })
