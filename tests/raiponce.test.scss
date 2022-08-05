@@ -2,7 +2,7 @@
 @use '../node_modules/sass-true' as *;
 @use '..' as raiponce;
 
-@include describe('raiponce.lerp [function]') {
+@include describe('SASS: raiponce.lerp [function]') {
   @include it('supports PX for responsive sizes') {
     @include assert-equal(
       raiponce.lerp(
