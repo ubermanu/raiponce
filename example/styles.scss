@@ -1,18 +1,55 @@
-@use "sass:map";
-@use ".." as raiponce;
+@use 'sass:map';
+@use '..' as raiponce;
 
 html {
   font-size: 62.5%;
 }
 
 body {
-  font-family: "Droid Sans", sans-serif;
+  font-family: 'Droid Sans', sans-serif;
   font-size: raiponce.lerp(
     (
       380px: 10px,
       1600px: 20px
     )
   );
+}
+
+.page-content {
+  padding: 4rem 2rem;
+}
+
+.container {
+  margin-bottom: 4rem;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid lightgrey;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+
+.description {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  margin-top: -1rem;
+  color: darkslategrey;
+}
+
+p {
+  margin-bottom: 0.5rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .example-10to30 {
@@ -47,28 +84,24 @@ body {
 // Implement device detection
 .detect-device-pointer {
   color: firebrick;
-}
 
-@include raiponce.use-touchscreen() {
-  .detect-device-pointer {
+  @include raiponce.use-touchscreen() {
     color: forestgreen;
 
     &:before {
-      content: "You are using a touchscreen! 📱";
+      content: 'You are using a touchscreen! 📱';
     }
 
     > span {
       display: none;
     }
   }
-}
 
-@include raiponce.use-mouse() {
-  .detect-device-pointer {
+  @include raiponce.use-mouse() {
     color: forestgreen;
 
     &:before {
-      content: "You are using a mouse! 🐭";
+      content: 'You are using a mouse! 🐭';
     }
 
     > span {
