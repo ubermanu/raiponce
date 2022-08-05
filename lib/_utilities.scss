@@ -3,7 +3,7 @@
 // @return {Number} - Unitless number
 
 @function strip-unit($number) {
-  @if type-of($number) == "number" and not unitless($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
     @return $number / ($number * 0 + 1);
   }
 
@@ -14,7 +14,7 @@
 // https://github.com/lunelson/sass-calc/
 
 @function is-number($value) {
-  @return type-of($value) == "number";
+  @return type-of($value) == 'number';
 }
 
 @function can-sum($a, $b) {
@@ -25,7 +25,7 @@
 }
 
 @function is-zero($value) {
-  @if type-of($value) != "number" {
+  @if type-of($value) != 'number' {
     @return false;
   }
   $value: if(unitless($value), $value, $value / (0 * $value + 1));
@@ -42,7 +42,7 @@
   }
 
   // if expr2 is negative, flip and call opposite operation
-  @if type-of($expr2) == "number" and $expr2 < 0 {
+  @if type-of($expr2) == 'number' and $expr2 < 0 {
     @return add($expr1, $expr2/-1);
   }
 
@@ -57,7 +57,7 @@
   }
 
   // otherwise format and return calc expression
-  @return unquote("#{$expr1} - #{$expr2}");
+  @return unquote('#{$expr1} - #{$expr2}');
 }
 
 @function add($expr1, $expr2) {
@@ -67,7 +67,7 @@
   }
 
   // if expr2 is negative, flip and call opposite operation
-  @if type-of($expr2) == "number" and $expr2 < 0 {
+  @if type-of($expr2) == 'number' and $expr2 < 0 {
     @return subtract($expr1, $expr2/-1);
   }
 
@@ -85,7 +85,7 @@
   }
 
   // otherwise format and return calc expression
-  @return unquote("#{$expr1} + #{$expr2}");
+  @return unquote('#{$expr1} + #{$expr2}');
 }
 
 // Calculates a scaling value between two values of two breakpoints
