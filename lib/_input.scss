@@ -1,14 +1,14 @@
 // These mixins allows to target certain devices according to their control input
 
 // Targets mobile devices like smartphones
-@mixin use-touchscreen() {
+@mixin use-touchscreen {
   @media (hover: none) and (pointer: coarse) {
     @content;
   }
 }
 
 // Targets devices with stylus support
-@mixin use-stylus() {
+@mixin use-stylus {
   @media (hover: none) and (pointer: fine) {
     @content;
   }
@@ -16,14 +16,14 @@
 
 // Targets game with pointer devices
 // eg: Nintendo Wii, Microsoft Kinect
-@mixin use-game-pointer() {
+@mixin use-game-pointer {
   @media (hover: hover) and (pointer: coarse) {
     @content;
   }
 }
 
 // Targets desktop devices with a mouse or touchpad
-@mixin use-mouse() {
+@mixin use-mouse {
   @media (hover: hover) and (pointer: fine) {
     @content;
   }
