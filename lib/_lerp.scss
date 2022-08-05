@@ -3,11 +3,10 @@
 // This method generates a linear interpolation between two sizes for 2 media breakpoints.
 // Clamp limits the minimum and maximum sizes.
 
-// TODO: use $args...
-@function lerp($table, $ratio: 1, $domain: 100vw) {
+@function lerp($table, $ratio: 10) {
   $values: map-values($table);
   $minSize: nth($values, 1);
   $maxSize: nth($values, 2);
-  $preferredValue: utilities.interpolate($table, $ratio, $domain);
+  $preferredValue: utilities.interpolate($table, $ratio);
   @return unquote('clamp(#{$minSize}, #{$preferredValue}, #{$maxSize})');
 }

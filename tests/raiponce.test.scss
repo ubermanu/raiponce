@@ -28,6 +28,19 @@
     );
   }
 
+  @include it('supports REM for responsive sizes, with a ratio of 16/1') {
+    @include assert-equal(
+      raiponce.lerp(
+        (
+          360px: 1rem,
+          840px: 3.5rem
+        ),
+        16
+      ),
+      unquote('clamp(1rem, 8.33333333vw - 0.875rem, 3.5rem)')
+    );
+  }
+
   @include it('supports EM for responsive sizes') {
     @include assert-equal(
       raiponce.lerp(
