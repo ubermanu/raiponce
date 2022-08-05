@@ -1,9 +1,9 @@
-@use "sass:map";
-@use "../node_modules/sass-true" as *;
-@use ".." as raiponce;
+@use 'sass:map';
+@use '../node_modules/sass-true' as *;
+@use '..' as raiponce;
 
-@include describe("raiponce.lerp [function]") {
-  @include it("supports PX for responsive sizes") {
+@include describe('raiponce.lerp [function]') {
+  @include it('supports PX for responsive sizes') {
     @include assert-equal(
       raiponce.lerp(
         (
@@ -11,11 +11,11 @@
           1920px: 30px
         )
       ),
-      unquote("clamp(10px, 1.7361111111vw - 3.3333333333px, 30px)")
+      unquote('clamp(10px, 1.7361111111vw - 3.3333333333px, 30px)')
     );
   }
 
-  @include it("supports REM for responsive sizes, with a ratio of 10/1") {
+  @include it('supports REM for responsive sizes, with a ratio of 10/1') {
     @include assert-equal(
       raiponce.lerp(
         (
@@ -24,11 +24,11 @@
         ),
         10
       ),
-      unquote("clamp(1rem, 1.7361111111vw - 0.3333333333rem, 3rem)")
+      unquote('clamp(1rem, 1.7361111111vw - 0.3333333333rem, 3rem)')
     );
   }
 
-  @include it("supports EM for responsive sizes") {
+  @include it('supports EM for responsive sizes') {
     @include assert-equal(
       raiponce.lerp(
         (
@@ -37,7 +37,7 @@
         ),
         10
       ),
-      unquote("clamp(4em, 9.375vw - 0.5em, 7em)")
+      unquote('clamp(4em, 9.375vw - 0.5em, 7em)')
     );
   }
 }
