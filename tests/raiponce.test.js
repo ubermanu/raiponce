@@ -1,5 +1,5 @@
 import { lerp } from '..'
-import sassTrue from 'sass-true'
+import * as sassTrue from 'sass-true'
 
 it('should support PX for responsive sizes', () => {
   expect(lerp({ 768: '10px', 1920: '30px' })).toEqual(
