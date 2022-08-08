@@ -1,12 +1,62 @@
-@use 'utilities';
+@use 'sass:math';
+@use 'utilities' as *;
 
 // This method generates a linear interpolation between two sizes for 2 media breakpoints.
 // Clamp limits the minimum and maximum sizes.
 
-@function lerp($table, $ratio: 10) {
+@function lerp($table, $ratio: 10, $domain: 100vw) {
   $values: map-values($table);
   $minSize: nth($values, 1);
   $maxSize: nth($values, 2);
-  $preferredValue: utilities.interpolate($table, $ratio);
+  $preferredValue: interpolate($table, $ratio, $domain: 100vw);
   @return unquote('clamp(#{$minSize}, #{$preferredValue}, #{$maxSize})');
+}
+
+// Calculates a scaling value between two values of two breakpoints
+// Example: interpolate((768px: 1.2rem, 1920px: 3rem));
+
+@function interpolate($table, $ratio: 10, $domain: 100vw) {
+  @if length($table) != 2 {
+    @warn "The table should contain only 2 items. eg: ((100px: 10px, 200px, 20px))";
+  }
+
+  $keys: map-keys($table);
+  $values: map-values($table);
+
+  $key-1: nth($keys, 1);
+  $key-2: nth($keys, 2);
+
+  $val-1: nth($values, 1);
+  $val-2: nth($values, 2);
+
+  @if not comparable($key-1, $key-2) {
+    @error "These 2 breakpoints are not of the same unit type: #{$key-1}, #{$key-2}";
+  }
+
+  @if not comparable($val-1, $val-2) {
+    @error "These 2 sizes are not of the same unit type: #{$val-1}, #{$val-2}";
+  }
+
+  // Get unit from the 1st value
+  $unit: math.div($val-1, strip-unit($val-1));
+
+  $minWidth: strip-unit($key-1);
+  $maxWidth: strip-unit($key-2);
+
+  $minSize: strip-unit($val-1);
+  $maxSize: strip-unit($val-2);
+
+  @if unit($unit) == 'em' or unit($unit) == 'rem' {
+    $minSize: $minSize * $ratio;
+    $maxSize: $maxSize * $ratio;
+  }
+
+  $slope: math.div(($maxSize - $minSize), ($maxWidth - $minWidth));
+  $yAxisIntersection: -$minWidth * $slope + $minSize;
+
+  @if unit($unit) == 'em' or unit($unit) == 'rem' {
+    $yAxisIntersection: math.div($yAxisIntersection, $ratio);
+  }
+
+  @return add($slope * $domain, $yAxisIntersection * $unit);
 }
