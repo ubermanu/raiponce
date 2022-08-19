@@ -7,7 +7,7 @@
   ],
   "version": "2.3.0",
   "repository": "https://github.com/ubermanu/raiponce",
-  "author": "ubermanu <manu@paca.happy-dev.fr>",
+  "author": "Emmanuel Vodor <manu@paca.happy-dev.fr>",
   "license": "MIT",
   "type": "module",
   "main": "index.js",
